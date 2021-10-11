@@ -3,8 +3,14 @@ export default {
 
   namespace: 'example',
 
-  state: {},
+  state: { example: 'example'},
 
+  reducers: {
+    setExample(state, payload) {
+      console.log('1',payload)
+      return { ...state, example: payload.data.example };
+    },
+  },
   subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
     },
@@ -16,10 +22,5 @@ export default {
     },
   },
 
-  reducers: {
-    save(state, action) {
-      return { ...state, ...action.payload };
-    },
-  },
 
 };
